@@ -3,7 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Apple } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { lovable } from "@/integrations/lovable";
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 
@@ -25,18 +24,25 @@ const Auth = () => {
   }, [navigate, redirect]);
 
   const handleOAuth = async (provider: "apple" | "google") => {
-    setLoading(provider);
-    const result = await lovable.auth.signInWithOAuth(provider, {
-      redirect_uri: window.location.origin + redirect,
+  setLoading(provider);
+
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider,
+    options: {
+      redirectTo: window.location.origin + redirect,
+    },
+  });
+
+  if (error) {
+    toast({
+      title: "Sign-in failed",
+      description: error.message,
+      variant: "destructive",
     });
-    if (result.error) {
-      toast({ title: "Sign-in failed", description: result.error.message, variant: "destructive" });
-      setLoading(null);
-      return;
-    }
-    if (result.redirected) return;
-    navigate(redirect);
-  };
+
+    setLoading(null);
+  }
+};
 
   return (
     <Layout>
