@@ -200,3 +200,5 @@ EduStay™ is proprietary software developed and owned by Velixion (Pty) Ltd.
 All rights reserved.
 
 This source code may not be copied, modified, redistributed, or used for commercial purposes without prior written permission from Velixion (Pty) Ltd.
+
+EduStay Accommodation (Pty) Ltd powered by Velixion.
