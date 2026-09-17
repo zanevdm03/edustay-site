@@ -32,16 +32,7 @@ const Footer = () => (
                 </Link>
               </li>
             ))}
-            <li>
-              <a
-                href="https://www.homeprops.co.za"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="opacity-70 transition-opacity hover:opacity-100"
-              >
-                At Home
-              </a>
-            </li>
+            
           </ul>
         </div>
         <div>
@@ -77,7 +68,7 @@ const Footer = () => (
       </div>
       <div className="mt-8 border-t border-primary-foreground/10 pt-8 text-center text-sm opacity-50 space-y-1">
         <p>© {new Date().getFullYear()} EduStay Accommodation. All rights reserved.</p>
-        <p>In association with At Home Property Group SA | Registered with the PPRA</p>
+        <p>Not yet operating. Launching soon.</p>
       </div>
     </div>
   </footer>
